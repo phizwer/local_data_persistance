@@ -65,8 +65,8 @@ class _EditEntryState extends State<EditEntry> {
     final DateTime? _pickedDate = await showDatePicker(
       context: context,
       initialDate: _initialDate,
-      firstDate: DateTime.now().subtract(Duration(days: 365)),
-      lastDate: DateTime.now().add(Duration(days: 365)),
+      firstDate: DateTime.now().subtract(const Duration(days: 365)),
+      lastDate: DateTime.now().add(const Duration(days: 365)),
     );
     if (_pickedDate != null) {
       selectedDate = DateTime(
@@ -91,26 +91,26 @@ class _EditEntryState extends State<EditEntry> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             children: <Widget>[
               TextButton(
                 child: Row(
                   children: <Widget>[
-                    Icon(
+                    const Icon(
                       Icons.calendar_today,
                       size: 22.0,
                       color: Colors.black54,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16.0,
                     ),
                     Text(
                       DateFormat.yMMMEd().format(_selectedDate!),
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black54, fontWeight: FontWeight.bold),
                     ),
-                    Icon(
+                    const Icon(
                       Icons.arrow_drop_down,
                       color: Colors.black54,
                     ),
@@ -130,7 +130,7 @@ class _EditEntryState extends State<EditEntry> {
                 textInputAction: TextInputAction.next,
                 focusNode: _moodFocus,
                 textCapitalization: TextCapitalization.words,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Mood',
                   icon: Icon(Icons.mood),
                 ),
@@ -143,7 +143,7 @@ class _EditEntryState extends State<EditEntry> {
                 textInputAction: TextInputAction.newline,
                 focusNode: _noteFocus,
                 textCapitalization: TextCapitalization.sentences,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Note',
                   icon: Icon(Icons.subject),
                 ),
@@ -153,7 +153,7 @@ class _EditEntryState extends State<EditEntry> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   TextButton(
-                    child: Text('Cancel'),
+                    child: const Text('Cancel'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.grey.shade100,
                     ),
@@ -162,9 +162,9 @@ class _EditEntryState extends State<EditEntry> {
                       Navigator.pop(context, _journalEdit);
                     },
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   TextButton(
-                    child: Text('Save'),
+                    child: const Text('Save'),
                     style: TextButton.styleFrom(
                       backgroundColor: Colors.lightGreen.shade100,
                     ),

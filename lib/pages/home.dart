@@ -4,6 +4,8 @@ import 'package:persistance/classes/database.dart';
 import 'package:persistance/pages/edit_entry.dart'; // Format Dates
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
@@ -59,25 +61,25 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Local Persistence'),
+        title: const Text('Local Persistence'),
       ),
       body: FutureBuilder(
         initialData: [],
         future: _loadJournals(),
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           return !snapshot.hasData
-              ? Center(child: CircularProgressIndicator())
+              ? const Center(child: CircularProgressIndicator())
               : _buildListViewSeparated(snapshot);
         },
       ),
-      bottomNavigationBar: BottomAppBar(
+      bottomNavigationBar: const BottomAppBar(
         shape: CircularNotchedRectangle(),
-        child: Padding(padding: const EdgeInsets.all(24.0)),
+        child: Padding(padding: EdgeInsets.all(24.0)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add Journal Entry',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () async {
           _addOrEditJournal(add: true, index: -1, journal: Journal());
         },
@@ -99,8 +101,8 @@ class _HomeState extends State<Home> {
           background: Container(
             color: Colors.red,
             alignment: Alignment.centerLeft,
-            padding: EdgeInsets.only(left: 16.0),
-            child: Icon(
+            padding: const EdgeInsets.only(left: 16.0),
+            child: const Icon(
               Icons.delete,
               color: Colors.white,
             ),
@@ -108,8 +110,8 @@ class _HomeState extends State<Home> {
           secondaryBackground: Container(
             color: Colors.red,
             alignment: Alignment.centerRight,
-            padding: EdgeInsets.only(right: 16.0),
-            child: Icon(
+            padding: const EdgeInsets.only(right: 16.0),
+            child: const Icon(
               Icons.delete,
               color: Colors.white,
             ),
@@ -120,7 +122,7 @@ class _HomeState extends State<Home> {
                 Text(
                   DateFormat.d()
                       .format(DateTime.parse(snapshot.data![index].date)),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 32.0,
                       color: Colors.blue),
@@ -131,7 +133,7 @@ class _HomeState extends State<Home> {
             ),
             title: Text(
               _titleDate,
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
             subtitle: Text(_subtitle),
             onTap: () async {
@@ -151,7 +153,7 @@ class _HomeState extends State<Home> {
         );
       },
       separatorBuilder: (BuildContext context, int index) {
-        return Divider(
+        return const Divider(
           color: Colors.grey,
         );
       },

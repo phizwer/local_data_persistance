@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:persistance/pages/home.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         bottomAppBarColor: Colors.blue,
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }
